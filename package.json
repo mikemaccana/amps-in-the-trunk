@@ -1,0 +1,20 @@
+{
+  "name": "amps-in-the-trunk",
+  "version": "1.0.3",
+  "description": "Eats HTML, spits out AMP pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "amp",
+    "seo",
+    "google-amp"
+  ],
+  "author": "Mike MacCana <mike@certsimple.com> (http://certsimple.com)",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "image-size": "^0.5.0"
+  }
+}
