@@ -65,7 +65,8 @@ module.exports = function(imageOverrides){
 	}
 
 	return {
-		toAmp
+		toAmp,
+		getSize
 	}
 }
 

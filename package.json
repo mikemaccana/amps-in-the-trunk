@@ -1,6 +1,6 @@
 {
   "name": "amps-in-the-trunk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Eats HTML, spits out AMP pages",
   "main": "index.js",
   "scripts": {
