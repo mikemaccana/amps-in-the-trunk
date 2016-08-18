@@ -18,7 +18,7 @@ module.exports = function(imageOverrides){
 		return dimensions;
 	}
 
-	var toAmp = function(html){
+	var imgToAmpImg = function(html){
 		var $ = cheerio.load(html);
 
 		// AMP images need exact sizes
@@ -62,6 +62,12 @@ module.exports = function(imageOverrides){
 
 		var ampHTML = $.html()
 		return ampHTML
+	}
+
+
+	var toAmp = function(html){
+		html = imgToAmpImg(html)
+		return html
 	}
 
 	return {
