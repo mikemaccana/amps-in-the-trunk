@@ -2,6 +2,8 @@
 
 amps-in-the-trunk will go through your HTML, use the DOM to change `<img>` into `<amp-img>` and add missing height / width stats.
 
+<img src="https://circleci.com/gh/mikemaccana/amps-in-the-trunk.svg?&style=shield&circle-token=8edd090fbaec0dd6d5d9345145f7c890b4bf56f0"/>
+
 ## How to use with express.js (and how to do the bits this module doesn't)
 
 So the main things with AMP for me were:
