@@ -24,6 +24,7 @@ suite('amp-img tags', function(){
 			</div>
 		`)
 		var actual = ampsInTheTrunk.toAmp(html).replace(".*");
+		// Slightly wonky indentation on result but that's cosmetic only
 		var expected = dedent(`
 		<div>
 				<p>

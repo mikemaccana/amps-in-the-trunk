@@ -1,6 +1,6 @@
 {
   "name": "amps-in-the-trunk",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Eats HTML, spits out AMP pages",
   "main": "index.js",
   "scripts": {
@@ -17,5 +17,9 @@
     "cheerio": "^0.20.0",
     "dedent": "^0.6.0",
     "image-size": "^0.5.0"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/mikemaccana/amps-in-the-trunk.git"
   }
 }
