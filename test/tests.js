@@ -23,7 +23,7 @@ suite('amp-img tags', function(){
 				<img src="`+testImage+`"/>
 			</div>
 		`)
-		var actual = ampsInTheTrunk.toAmp(html).replace(".*");
+		var actual = ampsInTheTrunk.imgToAmpImg(html).replace(".*");
 		// Slightly wonky indentation on result but that's cosmetic only
 		var expected = dedent(`
 		<div>
@@ -36,4 +36,21 @@ suite('amp-img tags', function(){
 		assert.deepEqual(actual, expected)
 	});
 
+})
+
+suite('strips inline styles', function(){
+	test('strips inline styles', function(){
+		var html = dedent(`
+			<h2 style="color: green;">
+				Woo I am a heading!
+			</h2>
+		`)
+		var actual = ampsInTheTrunk.stripInlineStyles(html).replace(".*");
+		// Slightly wonky indentation on result but that's cosmetic only
+		var expected = dedent(`
+		<h2>
+				Woo I am a heading!
+			</h2>`)
+		assert.deepEqual(actual, expected)
+	})
 })

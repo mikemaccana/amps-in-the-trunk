@@ -18,6 +18,13 @@ module.exports = function(imageOverrides){
 		return dimensions;
 	}
 
+	var stripInlineStyles = function(html){
+		var $ = cheerio.load(html);
+		$('*').removeAttr('style');
+		var ampHTML = $.html();
+		return ampHTML;
+	}
+
 	var imgToAmpImg = function(html){
 		var $ = cheerio.load(html);
 
@@ -64,14 +71,16 @@ module.exports = function(imageOverrides){
 		return ampHTML
 	}
 
-
 	var toAmp = function(html){
 		html = imgToAmpImg(html)
+		html = stripInlineStyles(html)
 		return html
 	}
 
 	return {
 		toAmp,
+		stripInlineStyles,
+		imgToAmpImg,
 		getSize
 	}
 }
