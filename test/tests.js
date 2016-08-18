@@ -23,14 +23,14 @@ suite('amp-img tags', function(){
 				<img src="`+testImage+`"/>
 			</div>
 		`)
-		var actual = ampsInTheTrunk.toAmp(html);
+		var actual = ampsInTheTrunk.toAmp(html).replace(".*");
 		var expected = dedent(`
 		<div>
 				<p>
 					I&apos;ve gone into full girl meltdown.
 				</p>
 
-				<amp-img layout="responsive" alt="an image" src="/Users/mike/Documents/amps-in-the-trunk/test/ferret.gif"></amp-img>
+				<amp-img layout="responsive" alt="an image" src="${ __dirname }/ferret.gif"></amp-img>
 			</div>`)
 		assert.deepEqual(actual, expected)
 	});
