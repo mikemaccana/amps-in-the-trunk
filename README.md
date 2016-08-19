@@ -23,7 +23,7 @@ Most apps use a templating engine to generate their HTML. So as a developer:
 So you're using express, this looks like
 
  - Use `layout=` to specify the AMP layout rather than your normal one
- - Provide a callback to `res.render()` to allow us to intercept the rendered HTML and convert it to AMP:
+ - Use `res.renderAMP(view, local)` to render HTML and convert it to AMP:
 
 <!-- http://meta.stackexchange.com/questions/34292/code-blocks-after-a-list-but-not-within-a-list-in-markdown-is-it-possible -->
 
