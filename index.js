@@ -1,5 +1,6 @@
 var cheerio = require('cheerio'),
-	sizeOf = require('image-size');
+	sizeOf = require('image-size'),
+	log = console.log.bind(console);
 
 // See README for imageOverrides format
 module.exports = function(imageOverrides){
@@ -32,7 +33,7 @@ module.exports = function(imageOverrides){
 					next(err);
 					return
 				}
-				var ampHTML = ampsInTheTrunk.toAmp(output);
+				var ampHTML = toAmp(output);
 				res.status(200).send(ampHTML);
 			})
 		};
