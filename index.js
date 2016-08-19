@@ -25,6 +25,18 @@ module.exports = function(imageOverrides){
 		return ampHTML;
 	}
 
+	var renderAMP = function(req, res, next) {
+		res.renderAMP = function(template, templateVars){
+			if ( err ) {
+				log(err)
+				next();
+				return
+			}
+			var ampHTML = ampsInTheTrunk.toAmp(output);
+			res.status(200).send(ampHTML);
+		};
+	}
+
 	var imgToAmpImg = function(html){
 		var $ = cheerio.load(html);
 
@@ -81,6 +93,7 @@ module.exports = function(imageOverrides){
 		toAmp,
 		stripInlineStyles,
 		imgToAmpImg,
+		renderAMP,
 		getSize
 	}
 }
