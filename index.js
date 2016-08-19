@@ -27,14 +27,16 @@ module.exports = function(imageOverrides){
 
 	var renderAMP = function(req, res, next) {
 		res.renderAMP = function(template, templateVars){
-			if ( err ) {
-				log(err)
-				next();
-				return
-			}
-			var ampHTML = ampsInTheTrunk.toAmp(output);
-			res.status(200).send(ampHTML);
+			res.render(template, templateVars, function(err, output){
+				if ( err ) {
+					next(err);
+					return
+				}
+				var ampHTML = ampsInTheTrunk.toAmp(output);
+				res.status(200).send(ampHTML);
+			})
 		};
+		next();
 	}
 
 	var imgToAmpImg = function(html){
