@@ -1,5 +1,6 @@
 var cheerio = require('cheerio'),
-	sizeOf = require('image-size'),
+	getImageSize = require('image-size'),
+	fs = require('fs'),
 	log = console.log.bind(console);
 
 // See README for imageOverrides format
@@ -10,11 +11,24 @@ module.exports = function(imageOverrides){
 	var cache = {}
 
 	var getSize = function(imageFile){
+		// Since we're part of page rendering, we return null results if the file is missing
+		var status;
+		try {
+		  status = fs.statSync(imageFile);
+		} catch (err) {
+		  if ( err.code === 'ENOENT' )
+		  console.error("Missing image file:", imageFile)
+		  return {
+		  	height: null,
+		  	width: null,
+		  	type: null
+		  }
+		}
 		var cachedDimensions = cache[imageFile]
 		if ( cachedDimensions ) {
 			return cachedDimensions
 		}
-		var dimensions = sizeOf(imageFile)
+		var dimensions = getImageSize(imageFile)
 		cache[imageFile] = dimensions;
 		return dimensions;
 	}
