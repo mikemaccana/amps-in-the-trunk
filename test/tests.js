@@ -6,7 +6,7 @@ var parentDir = __dirname,
 	assert = require('assert'),
 	fs = require('fs'),
 	ampsInTheTrunk = require('../index.js')(),
-	dedent = require('dedent'),
+	dedent = require('dedent-js'),
 	log = console.log.bind(console)
 
 suite('amp-img tags', function(){
@@ -15,7 +15,7 @@ suite('amp-img tags', function(){
 		var testImage = parentDir+'/ferret.gif';
 		var stats = fs.statSync(testImage);
 		var html = dedent(`
-			<div>
+		<div>
 				<p>
 					I've gone into full girl meltdown.
 				</p>
@@ -42,8 +42,8 @@ suite('strips inline styles', function(){
 	test('strips inline styles', function(){
 		var html = dedent(`
 			<h2 style="color: green;">
-				Woo I am a heading!
-			</h2>
+					Woo I am a heading!
+				</h2>
 		`)
 		var actual = ampsInTheTrunk.stripInlineStyles(html).replace(".*");
 		// Slightly wonky indentation on result but that's cosmetic only
