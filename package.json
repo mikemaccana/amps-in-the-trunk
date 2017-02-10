@@ -1,6 +1,6 @@
 {
   "name": "amps-in-the-trunk",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "Turns HTML in Google AMP HTML. Includes express middleware.",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "dedent-js": "^1.0.1",
+    "highlight.js": "^9.9.0",
     "image-size": "^0.5.0"
   },
   "repository": {

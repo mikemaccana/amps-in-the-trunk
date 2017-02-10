@@ -7,7 +7,7 @@ var parentDir = __dirname,
 	fs = require('fs'),
 	ampsInTheTrunk = require('../index.js')(),
 	dedent = require('dedent-js'),
-	log = console.log.bind(console)
+	log = console.log.bind(console);
 
 suite('amp-img tags', function(){
 
@@ -35,7 +35,6 @@ suite('amp-img tags', function(){
 			</div>`)
 		assert.deepEqual(actual, expected)
 	});
-
 })
 
 suite('strips inline styles', function(){
@@ -51,6 +50,27 @@ suite('strips inline styles', function(){
 		<h2>
 				Woo I am a heading!
 			</h2>`)
+		assert.deepEqual(actual, expected)
+	})
+});
+
+suite('syntax highlighting', function(){
+	test('works', function(){
+		var html = dedent(`
+		<pre>
+				<code>
+					console.log('Yolo swag')
+				</code>
+			</pre>
+		`)
+		var actual = ampsInTheTrunk.highlightCode(html);
+		var expected = dedent(`
+		<pre>
+				<code>
+					console.log(<span class="hljs-variable">&amp;apos</span>;Yolo swag<span class="hljs-variable">&amp;apos</span>;)
+				</code>
+			</pre>
+		`)
 		assert.deepEqual(actual, expected)
 	})
 })

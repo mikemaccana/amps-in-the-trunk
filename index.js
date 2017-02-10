@@ -1,10 +1,11 @@
 var cheerio = require('cheerio'),
 	getImageSize = require('image-size'),
 	fs = require('fs'),
+	highlight = require('highlight.js'),
 	log = console.log.bind(console);
 
 // See README for imageOverrides format
-module.exports = function(imageOverrides){
+module.exports = function(imageOverrides, enableCodeHighlighting){
 
 	imageOverrides = imageOverrides || {};
 
@@ -100,9 +101,28 @@ module.exports = function(imageOverrides){
 		return ampHTML
 	}
 
+	var highlightCode = function(html){
+		var $ = cheerio.load(html);
+
+		$('pre code').each(function(index, element) {
+			var $element = $(element);
+			log('element', $element.text())
+			var elementText = $element.html();
+			log('elementText', elementText)
+			var highlightedText = highlight.highlightAuto(elementText)
+			log('highlightedText', highlightedText.value)
+			$element.html(highlightedText.value)
+		});
+		var ampHTML = $.html()
+		return ampHTML
+	}
+
 	var toAmp = function(html){
 		html = imgToAmpImg(html)
 		html = stripInlineStyles(html)
+		if ( enableCodeHighlighting ) {
+			html = highlightCode(html)
+		}
 		return html
 	}
 
@@ -110,6 +130,7 @@ module.exports = function(imageOverrides){
 		toAmp,
 		stripInlineStyles,
 		imgToAmpImg,
+		highlightCode,
 		renderAMP,
 		getSize
 	}

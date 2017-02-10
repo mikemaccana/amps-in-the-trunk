@@ -28,7 +28,9 @@ So you're using express, this looks like
 <!-- http://meta.stackexchange.com/questions/34292/code-blocks-after-a-list-but-not-within-a-list-in-markdown-is-it-possible -->
 
 	// Load the module and pass in any overrides
-	var ampsInTheTrunk = require('amps-in-the-trunk')()
+	// imageOverrides optional Object - see below
+	// enableCodeHighlighting optional Boolean - see below
+	var ampsInTheTrunk = require('amps-in-the-trunk')(imageOverrides, enableCodeHighlighting)
 
 	// Enable the renderAMP Express middleware
 	app.use(ampsInTheTrunk.renderAMP);
@@ -42,7 +44,7 @@ So you're using express, this looks like
 		});
 	});
 
-## SVGs aren't sized correctly, or I want a different layout for an image
+## The *imageOverrides* option - when SVGs aren't sized correctly, or I want a different layout for an image
 
 amps-in-the-trunk sets images to `responsive` by default. You can change that with `imageOverrides`. Also most SVGs have incorrect sizing. You could fix the SVGs, or you could override them with `imageOverrides`.
 
@@ -60,6 +62,10 @@ amps-in-the-trunk sets images to `responsive` by default. You can change that wi
 	}
 
 	var ampsInTheTrunk = require('amps-in-the-trunk')(imageOverrides)
+
+## The enableCodeHighlighting option - highlights `<pre><code>` blok using highlight.js
+
+If you want syntax highlighting, AMPS in the Trunk will use highlight.js to highlight the specific blocks.
 
 ## Why another AMP module?
 
