@@ -14,15 +14,15 @@ module.exports = function(imageOverrides){
 		// Since we're part of page rendering, we return null results if the file is missing
 		var status;
 		try {
-		  status = fs.statSync(imageFile);
+			status = fs.statSync(imageFile);
 		} catch (err) {
-		  if ( err.code === 'ENOENT' )
-		  console.error("Missing image file:", imageFile)
-		  return {
-		  	height: null,
-		  	width: null,
-		  	type: null
-		  }
+			if ( err.code === 'ENOENT' )
+			console.error("Missing image file:", imageFile)
+			return {
+				height: null,
+				width: null,
+				type: null
+			}
 		}
 		var cachedDimensions = cache[imageFile]
 		if ( cachedDimensions ) {
