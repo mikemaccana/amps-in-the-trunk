@@ -65,7 +65,7 @@ amps-in-the-trunk sets images to `responsive` by default. You can change that wi
 
 	var ampsInTheTrunk = require('amps-in-the-trunk')(imageOverrides)
 
-## The enableCodeHighlighting option - highlights `<pre><code>` blok using highlight.js
+## The enableCodeHighlighting option - highlights `<pre><code>` blocks using highlight.js
 
 If you want syntax highlighting, AMPS in the Trunk will use [highlight.js](https://www.npmjs.com/package/highlight.js) to highlight the specific blocks.
 
