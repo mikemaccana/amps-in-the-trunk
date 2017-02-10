@@ -1,5 +1,7 @@
 # A module to transform HTML directly to Google AMP HTML
 
+<img src="https://travis-ci.org/mikemaccana/amps-in-the-trunk.svg?branch=master"/>
+
 amps-in-the-trunk will go through your HTML, use the DOM to change `<img>` into `<amp-img>` and add missing height / width stats.
 
 <img src="https://circleci.com/gh/mikemaccana/amps-in-the-trunk.svg?&style=shield&circle-token=8edd090fbaec0dd6d5d9345145f7c890b4bf56f0"/>
