@@ -67,7 +67,7 @@ amps-in-the-trunk sets images to `responsive` by default. You can change that wi
 
 ## The enableCodeHighlighting option - highlights `<pre><code>` blok using highlight.js
 
-If you want syntax highlighting, AMPS in the Trunk will use highlight.js to highlight the specific blocks.
+If you want syntax highlighting, AMPS in the Trunk will use [highlight.js](https://www.npmjs.com/package/highlight.js) to highlight the specific blocks.
 
 ## Why another AMP module?
 
