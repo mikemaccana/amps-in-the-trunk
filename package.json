@@ -1,6 +1,6 @@
 {
   "name": "amps-in-the-trunk",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Turns HTML in Google AMP HTML. Includes express middleware.",
   "main": "index.js",
   "scripts": {
