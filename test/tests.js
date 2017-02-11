@@ -66,7 +66,7 @@ suite('syntax highlighting', function(){
 		var actual = ampsInTheTrunk.highlightCode(html);
 		var expected = dedent(`
 		<pre>
-				<code>
+				<code class="hljs">
 					console.log(<span class="hljs-variable">&amp;apos</span>;Yolo swag<span class="hljs-variable">&amp;apos</span>;)
 				</code>
 			</pre>

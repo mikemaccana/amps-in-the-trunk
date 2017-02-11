@@ -105,6 +105,7 @@ module.exports = function(imageOverrides, enableCodeHighlighting){
 
 		$('pre code').each(function(index, element) {
 			var $element = $(element);
+			$element.addClass('hljs');
 			var elementText = $element.html();
 			var highlightedText = highlight.highlightAuto(elementText)
 			$element.html(highlightedText.value)
