@@ -6,7 +6,6 @@ var cheerio = require('cheerio'),
 
 // See README for imageOverrides format
 module.exports = function(imageOverrides, enableCodeHighlighting){
-
 	imageOverrides = imageOverrides || {};
 
 	var cache = {}
@@ -106,11 +105,8 @@ module.exports = function(imageOverrides, enableCodeHighlighting){
 
 		$('pre code').each(function(index, element) {
 			var $element = $(element);
-			log('element', $element.text())
 			var elementText = $element.html();
-			log('elementText', elementText)
 			var highlightedText = highlight.highlightAuto(elementText)
-			log('highlightedText', highlightedText.value)
 			$element.html(highlightedText.value)
 		});
 		var ampHTML = $.html()
