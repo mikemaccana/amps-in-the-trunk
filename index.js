@@ -2,6 +2,7 @@ var cheerio = require('cheerio'),
 	getImageSize = require('image-size'),
 	fs = require('fs'),
 	highlight = require('highlight.js'),
+	underscoreString = require('underscore.string'),
 	log = console.log.bind(console);
 
 // See README for imageOverrides format
@@ -101,13 +102,14 @@ module.exports = function(imageOverrides, enableCodeHighlighting){
 	}
 
 	var highlightCode = function(html){
-		var $ = cheerio.load(html);
+		var $ = cheerio.load(html, {decodeEntities: false});
 
 		$('pre code').each(function(index, element) {
 			var $element = $(element);
 			$element.addClass('hljs');
 			var elementText = $element.html();
-			var highlightedText = highlight.highlightAuto(elementText)
+			var elementTextClean = underscoreString.unescapeHTML(elementText)
+			var highlightedText = highlight.highlightAuto(elementTextClean)
 			$element.html(highlightedText.value)
 		});
 		var ampHTML = $.html()

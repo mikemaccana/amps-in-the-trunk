@@ -67,7 +67,7 @@ suite('syntax highlighting', function(){
 		var expected = dedent(`
 		<pre>
 				<code class="hljs">
-					console.log(<span class="hljs-variable">&amp;apos</span>;Yolo swag<span class="hljs-variable">&amp;apos</span>;)
+					console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Yolo swag'</span>)
 				</code>
 			</pre>
 		`)
