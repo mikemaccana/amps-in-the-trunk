@@ -2,17 +2,23 @@
 
 <img src="https://travis-ci.org/mikemaccana/amps-in-the-trunk.svg?branch=master"/>
 
-amps-in-the-trunk will go through your HTML, use the DOM to change `<img>` into `<amp-img>` and add missing height / width stats.
+amps-in-the-trunk turns HTML into AM HTML: changing `<img>` into `<amp-img>`, including:
+
+ - Adding missing height / width stats
+ - Performing server-side syntax highlighting for `<pre><code>` blocks.
+ - Stripping inline syles
+
+It also comes with express middleware so you can `res.renderAMP()`. Woo!
 
 <img src="https://circleci.com/gh/mikemaccana/amps-in-the-trunk.svg?&style=shield&circle-token=8edd090fbaec0dd6d5d9345145f7c890b4bf56f0"/>
 
 ## How to use with express.js (and how to do the bits this module doesn't)
 
-So the main things with AMP for me were:
+The biggest challenges for AMP are:
 
  - No script tags (except the AMP script tag)
  - CSS needs to be included in the HTML
- - No inline style attributes (most web developers don't use these, but some libraries eg for markdown generation putput them)
+ - No inline style attributes (most web developers don't use these, but some libraries eg for markdown generation output them)
  - Images always need height and width
 
 Most apps use a templating engine to generate their HTML. So as a developer:
