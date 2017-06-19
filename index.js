@@ -6,7 +6,7 @@ var cheerio = require('cheerio'),
 	log = console.log.bind(console);
 
 // See README for imageOverrides format
-module.exports = function(imageOverrides, enableCodeHighlighting){
+module.exports = function(imageOverrides, enableCodeHighlighting, languageSubset){
 	imageOverrides = imageOverrides || {};
 
 	var cache = {}
@@ -109,7 +109,9 @@ module.exports = function(imageOverrides, enableCodeHighlighting){
 			$element.addClass('hljs');
 			var elementText = $element.html();
 			var elementTextClean = underscoreString.unescapeHTML(elementText)
-			var highlightedText = highlight.highlightAuto(elementTextClean)
+			// See http://highlightjs.readthedocs.io/en/latest/api.html#highlightauto-value-languagesubset
+			// To list all languages: http://highlightjs.readthedocs.io/en/latest/api.html#listlanguages
+			var highlightedText = highlight.highlightAuto(elementTextClean, languageSubset)
 			$element.html(highlightedText.value)
 		});
 		var ampHTML = $.html()

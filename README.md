@@ -38,7 +38,8 @@ So you're using express, this looks like
 	// Load the module and pass in any overrides
 	// imageOverrides optional Object - see below
 	// enableCodeHighlighting optional Boolean - see below
-	var ampsInTheTrunk = require('amps-in-the-trunk')(imageOverrides, enableCodeHighlighting)
+	// languageSubset - optional Array - for highlightjs. See http://highlightjs.readthedocs.io/en/latest/api.html#highlightauto-value-languagesubset
+	var ampsInTheTrunk = require('amps-in-the-trunk')(imageOverrides, enableCodeHighlighting, languageSubset)
 
 	// Enable the renderAMP Express middleware
 	app.use(ampsInTheTrunk.renderAMP);

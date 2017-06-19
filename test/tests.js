@@ -5,7 +5,7 @@
 var parentDir = __dirname,
 	assert = require('assert'),
 	fs = require('fs'),
-	ampsInTheTrunk = require('../index.js')(),
+	ampsInTheTrunk = require('../index.js')(null, null, ['javascript', 'bash', 'handlebars', 'powershell']),
 	dedent = require('dedent-js'),
 	log = console.log.bind(console);
 
@@ -67,7 +67,7 @@ suite('syntax highlighting', function(){
 		var expected = dedent(`
 		<pre>
 				<code class="hljs">
-					console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Yolo swag'</span>)
+					<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Yolo swag'</span>)
 				</code>
 			</pre>
 		`)
